@@ -10,5 +10,5 @@ define('USER', 'root');
 define('PASSWORD', '');
 define('CHARSET', 'utf32_spanish2_ci');
 
-
+//hola mundo
 ?>
