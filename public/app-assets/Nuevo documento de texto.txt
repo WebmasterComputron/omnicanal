@@ -1,0 +1,7 @@
+
+    <link rel="stylesheet" type="text/css" href="<?php echo constant('URL') ?>public/app-assets/vendors/css/extensions/jstree.min.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo constant('URL') ?>public/app-assets/css/plugins/extensions/ext-component-tree.min.css">
+
+<script src="<?php echo constant('URL') ?>public/tree/ext-component-tree.min.js"></script>
+<script src="<?php echo constant('URL') ?>public/tree/jstree.min.js"></script>
+
