@@ -17,7 +17,7 @@ class agendarmodel extends Model
         $usu = $_SESSION['userName'];
 
         try {
-            $resultado = $this->db->connect()->query("SELECT * FROM prueba.agendar where usuarios = '".$usu."'");
+            $resultado = $this->db->connect()->query("SELECT * FROM omnicanal.agendar where usuarios = '".$usu."'");
             if ($resultado->execute()) {
                 $result = $resultado->fetchAll(PDO::FETCH_ASSOC);
                 echo json_encode($result);
@@ -37,7 +37,7 @@ class agendarmodel extends Model
     function CargarCedulas()
     {
         try {
-            $resultado = $this->db->connect()->query("SELECT registro_cedula FROM prueba.registro ");
+            $resultado = $this->db->connect()->query("SELECT registro_cedula FROM omnicanal.registro ");
             if ($resultado->execute()) {
                 $result = $resultado->fetchAll(PDO::FETCH_ASSOC);
                 return ($result);
@@ -60,7 +60,7 @@ class agendarmodel extends Model
 
         try {
             $items = [];
-            $query = $this->db->connect()->prepare("INSERT INTO prueba.agendar 
+            $query = $this->db->connect()->prepare("INSERT INTO omnicanal.agendar 
             (usuarios,fecha_hora_agendar,cedula_registro,observaciones_agendar)
             values(:usuario,:fecha,:cedula,:observaciones)");
 
@@ -91,7 +91,7 @@ class agendarmodel extends Model
         try {
             $items = [];
             $estado = 1;
-            $query = $this->db->connect()->prepare("UPDATE prueba.agendar SET llamarCliente =:estado WHERE id_agendar=:id_agendar");
+            $query = $this->db->connect()->prepare("UPDATE omnicanal.agendar SET llamarCliente =:estado WHERE id_agendar=:id_agendar");
 
             $query->bindParam(":id_agendar", $id_agendar);
             $query->bindParam(":estado", $estado);

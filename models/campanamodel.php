@@ -16,7 +16,7 @@ class campanamodel extends Model
         //$id_campana = $parametros["id_campana"];
 
         try {
-            $resultado = $this->db->connect()->query("SELECT * FROM prueba.campana");
+            $resultado = $this->db->connect()->query("SELECT * FROM omnicanal.campana");
             if ($resultado->execute()) {
                 $result = $resultado->fetchAll(PDO::FETCH_ASSOC);
                 echo json_encode($result);
@@ -36,7 +36,7 @@ class campanamodel extends Model
         $id_campana = $parametros["id_campana"];
 
         try {
-            $resultado = $this->db->connect()->query("SELECT * FROM prueba.campana WHERE id_campana = '" . $id_campana . "'");
+            $resultado = $this->db->connect()->query("SELECT * FROM omnicanal.campana WHERE id_campana = '" . $id_campana . "'");
             if ($resultado->execute()) {
                 $result = $resultado->fetchAll(PDO::FETCH_ASSOC);
                 echo json_encode($result);
@@ -55,7 +55,7 @@ class campanamodel extends Model
     {
 
         try {
-            $resultado = $this->db->connect()->query("SELECT * FROM prueba.campana");
+            $resultado = $this->db->connect()->query("SELECT * FROM omnicanal.campana");
             if ($resultado->execute()) {
                 $result = $resultado->fetchAll(PDO::FETCH_ASSOC);
                 return $result;
@@ -72,7 +72,7 @@ class campanamodel extends Model
         $id_campana = $parametros["id_campana"];
         $items = [];
         try {
-            $query = $this->db->connect()->query("SELECT * FROM prueba.campana_detalle
+            $query = $this->db->connect()->query("SELECT * FROM omnicanal.campana_detalle
             Where id_campana = '" . $id_campana . "'");
             //$query->bindParam(":id_campana", $id_campana);
             $c = 0;
@@ -109,7 +109,7 @@ class campanamodel extends Model
     {
 
         try {
-            $resultado = $this->db->connect()->query("SELECT * FROM prueba.plantilla");
+            $resultado = $this->db->connect()->query("SELECT * FROM omnicanal.plantilla");
             if ($resultado->execute()) {
                 $result = $resultado->fetchAll(PDO::FETCH_ASSOC);
                 return ($result);
@@ -126,7 +126,7 @@ class campanamodel extends Model
     {
 
         try {
-            $resultado = $this->db->connect()->query("SELECT nombre_campana FROM prueba.campana");
+            $resultado = $this->db->connect()->query("SELECT nombre_campana FROM omnicanal.campana");
             if ($resultado->execute()) {
                 $result = $resultado->fetchAll(PDO::FETCH_ASSOC);
                 return ($result);
@@ -148,7 +148,7 @@ class campanamodel extends Model
 
         try {
             $items = [];
-            $query = $this->db->connect()->prepare("INSERT INTO prueba.campana 
+            $query = $this->db->connect()->prepare("INSERT INTO omnicanal.campana 
             (nombre_campana,id_plantilla)
             values(:campana,:id_plantilla)");
 
@@ -180,7 +180,7 @@ class campanamodel extends Model
 
         $bandera = false;
         try {
-            $query = $this->db->connect()->prepare("INSERT INTO prueba.campana_detalle
+            $query = $this->db->connect()->prepare("INSERT INTO omnicanal.campana_detalle
             (id_campana,campo,valor,ident) 
             values(:id_campana,:campo,:valor,:ident)");
             $query->bindParam(":id_campana", $id_campana);
@@ -213,7 +213,7 @@ class campanamodel extends Model
 
         try {
             $items = [];
-            $query = $this->db->connect()->prepare("UPDATE prueba.campana SET nombre_campana =:campana WHERE id_campana=:id_campana");
+            $query = $this->db->connect()->prepare("UPDATE omnicanal.campana SET nombre_campana =:campana WHERE id_campana=:id_campana");
 
 
             $query->bindParam(":campana", $nombre_campana);
@@ -237,7 +237,7 @@ class campanamodel extends Model
     {
         try {
             $items = [];
-            $query = $this->db->connect()->prepare("select max(id_campana) as n from prueba.campana");
+            $query = $this->db->connect()->prepare("select max(id_campana) as n from omnicanal.campana");
             if ($query->execute()) {
                 $result = $query->fetchAll(PDO::FETCH_ASSOC);
                 $result = $result[0]["n"];
@@ -263,7 +263,7 @@ class campanamodel extends Model
     {
         try {
             $items = [];
-            $query = $this->db->connect()->prepare("SELECT max(ident) as n from prueba.campana_detalle");
+            $query = $this->db->connect()->prepare("SELECT max(ident) as n from omnicanal.campana_detalle");
             if ($query->execute()) {
                 $result = $query->fetchAll(PDO::FETCH_ASSOC);
                 $result = $result[0]["n"];
@@ -291,7 +291,7 @@ class campanamodel extends Model
         $id_plantilla = $parametros["id_plantilla"];
 
         try {
-            $query = $this->db->connect()->query("SELECT * FROM prueba.detalle_plantilla
+            $query = $this->db->connect()->query("SELECT * FROM omnicanal.detalle_plantilla
             Where id_plantilla = '" . $id_plantilla . "'");
             //$query->bindParam(":id_plantilla", $id_plantilla, PDO::PARAM_STR);
 

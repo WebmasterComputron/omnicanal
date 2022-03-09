@@ -16,7 +16,7 @@ class tipificacionmodel extends Model
     {
 
         try {
-            $resultado = $this->db->connect()->query("SELECT * FROM prueba.tipificaciones");
+            $resultado = $this->db->connect()->query("SELECT * FROM omnicanal.tipificaciones");
             if ($resultado->execute()) {
                 $result = $resultado->fetchAll(PDO::FETCH_ASSOC);
                 echo json_encode($result);
@@ -37,7 +37,7 @@ class tipificacionmodel extends Model
     {
 
         try {
-            $resultado = $this->db->connect()->query("SELECT tipificacion FROM prueba.tipificaciones");
+            $resultado = $this->db->connect()->query("SELECT tipificacion FROM omnicanal.tipificaciones");
             if ($resultado->execute()) {
                 $result = $resultado->fetchAll(PDO::FETCH_ASSOC);
                 return ($result);
@@ -58,7 +58,7 @@ class tipificacionmodel extends Model
 
         try {
             $items = [];
-            $query = $this->db->connect()->prepare("INSERT INTO prueba.tipificaciones
+            $query = $this->db->connect()->prepare("INSERT INTO omnicanal.tipificaciones
             (tipificacion, id_campana)
             values(:tipificacion,:id_campana)");
 
@@ -87,7 +87,7 @@ class tipificacionmodel extends Model
 
         try {
             $items = [];
-            $query = $this->db->connect()->prepare("UPDATE prueba.tipificaciones SET tipificacion =:tipificacion WHERE id_tipificaciones=:id_tipificaciones");
+            $query = $this->db->connect()->prepare("UPDATE omnicanal.tipificaciones SET tipificacion =:tipificacion WHERE id_tipificaciones=:id_tipificaciones");
 
             $query->bindParam(":id_tipificaciones", $id_tipificaciones);
             $query->bindParam(":tipificacion", $tipificacion);            
@@ -109,7 +109,7 @@ class tipificacionmodel extends Model
     {
 
         try {
-            $resultado = $this->db->connect()->query("SELECT * FROM prueba.campana");
+            $resultado = $this->db->connect()->query("SELECT * FROM omnicanal.campana");
             if ($resultado->execute()) {
                 $result = $resultado->fetchAll(PDO::FETCH_ASSOC);
                 return ($result);

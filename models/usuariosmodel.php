@@ -13,7 +13,7 @@ class usuariosmodel extends Model{
     function traerusuarios(){
 
         try{
-            $resultado = $this->db->connect()->query("SELECT * FROM prueba.usuarios");
+            $resultado = $this->db->connect()->query("SELECT * FROM omnicanal.usuarios");
             if($resultado->execute()){
                 $result = $resultado->fetchAll(PDO::FETCH_ASSOC);
                 echo json_encode($result);
@@ -34,7 +34,7 @@ class usuariosmodel extends Model{
     {
 
         try {
-            $resultado = $this->db->connect()->query("SELECT usuarios_cedula FROM prueba.usuarios");
+            $resultado = $this->db->connect()->query("SELECT usuarios_cedula FROM omnicanal.usuarios");
             if ($resultado->execute()) {
                 $result = $resultado->fetchAll(PDO::FETCH_ASSOC);
                 return ($result);
@@ -60,7 +60,7 @@ class usuariosmodel extends Model{
 
         try {
             $items = [];
-            $query = $this->db->connect()->prepare("INSERT INTO prueba.usuarios
+            $query = $this->db->connect()->prepare("INSERT INTO omnicanal.usuarios
             (usuarios_cedula,apellido,nombre,celular,correo_electronico,contrasena,procedencia)
             values(:cedula,:apellido,:nombre,:telefono,:correo_electronico,:contrasena,:procedencia)");
 

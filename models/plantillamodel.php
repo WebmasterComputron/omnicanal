@@ -16,7 +16,7 @@ class PlantillaModel extends Model
     {
         try {
             $items = [];
-            $query = $this->db->connect()->prepare("select max(id_plantilla) as n from prueba.plantilla");
+            $query = $this->db->connect()->prepare("select max(id_plantilla) as n from omnicanal.plantilla");
             if ($query->execute()) {
                 $result = $query->fetchAll(PDO::FETCH_ASSOC);
                 $result = $result[0]["n"];
@@ -46,7 +46,7 @@ class PlantillaModel extends Model
 
         $bandera = false;
         try {
-            $query = $this->db->connect()->prepare("INSERT INTO prueba.plantilla
+            $query = $this->db->connect()->prepare("INSERT INTO omnicanal.plantilla
             (nombre,descripcion) 
             values(:nombre,:descripcion)");
             $query->bindParam(":nombre", $nombre, PDO::PARAM_STR);
@@ -77,7 +77,7 @@ class PlantillaModel extends Model
 
         $bandera = false;
         try {
-            $query = $this->db->connect()->prepare("INSERT INTO prueba.detalle_plantilla
+            $query = $this->db->connect()->prepare("INSERT INTO omnicanal.detalle_plantilla
             (id_plantilla,campo,tipo) 
             values(:id_plantilla,:campo,:tipo)");
             $query->bindParam(":id_plantilla", $id_plantilla, PDO::PARAM_STR);

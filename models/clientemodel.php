@@ -13,7 +13,7 @@ class clientemodel extends Model{
     function traercliente(){
 
         try{
-            $resultado = $this->db->connect()->query("SELECT * FROM prueba.registro");
+            $resultado = $this->db->connect()->query("SELECT * FROM omnicanal.registro");
             if($resultado->execute()){
                 $result = $resultado->fetchAll(PDO::FETCH_ASSOC);
                 echo json_encode($result);

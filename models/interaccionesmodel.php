@@ -18,7 +18,7 @@ class interaccionesmodel extends Model
         $usu = $_SESSION['userName'];
         try {
             $items = [];
-            $query = $this->db->connect()->prepare("SELECT * FROM prueba.interacciones Where usuarios = :usu AND cedulacontacto = :cedula");
+            $query = $this->db->connect()->prepare("SELECT * FROM omnicanal.interacciones Where usuarios = :usu AND cedulacontacto = :cedula");
 
             $query->bindParam(":cedula", $cedula);
             $query->bindParam(":usu", $usu);
@@ -57,7 +57,7 @@ class interaccionesmodel extends Model
     {
 
         try {
-            $resultado = $this->db->connect()->query("SELECT registro_cedula FROM prueba.registro");
+            $resultado = $this->db->connect()->query("SELECT registro_cedula FROM omnicanal.registro");
             if ($resultado->execute()) {
                 $result = $resultado->fetchAll(PDO::FETCH_ASSOC);
                 return ($result);
@@ -73,7 +73,7 @@ class interaccionesmodel extends Model
     {
 
         try {
-            $resultado = $this->db->connect()->query("SELECT nombre_campana FROM prueba.campana");
+            $resultado = $this->db->connect()->query("SELECT nombre_campana FROM omnicanal.campana");
             if ($resultado->execute()) {
                 $result = $resultado->fetchAll(PDO::FETCH_ASSOC);
                 return ($result);
@@ -89,7 +89,7 @@ class interaccionesmodel extends Model
     {
 
         try {
-            $resultado = $this->db->connect()->query("SELECT tipificacion FROM prueba.tipificaciones");
+            $resultado = $this->db->connect()->query("SELECT tipificacion FROM omnicanal.tipificaciones");
             if ($resultado->execute()) {
                 $result = $resultado->fetchAll(PDO::FETCH_ASSOC);
                 return ($result);
@@ -116,7 +116,7 @@ class interaccionesmodel extends Model
 
         try {
             $items = [];
-            $query = $this->db->connect()->prepare("INSERT INTO prueba.interacciones 
+            $query = $this->db->connect()->prepare("INSERT INTO omnicanal.interacciones 
             (usuarios,fechahora,cedulacontacto,observacion,nombre_campana,tipificacion,telefonocontacto,procedencia)
             values(:usuario,:fecha,:cedula,:observaciones,:campana,:tipificaciones,:telefonocontacto,:procedencias)");
 

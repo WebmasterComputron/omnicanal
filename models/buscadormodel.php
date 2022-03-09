@@ -13,7 +13,7 @@ class buscadormodel extends Model{
     function traerbuscador(){
 
         try{
-            $resultado = $this->db->connect()->query("SELECT * FROM prueba.usuarios");
+            $resultado = $this->db->connect()->query("SELECT * FROM omnicanal.usuarios");
             if($resultado->execute()){
                 $result = $resultado->fetchAll(PDO::FETCH_ASSOC);
                 echo json_encode($result);
@@ -33,7 +33,7 @@ class buscadormodel extends Model{
     function Cargarbuscador(){
 
         try {
-            $resultado = $this->db->connect()->query("SELECT usuarios_cedula FROM prueba.usuarios");
+            $resultado = $this->db->connect()->query("SELECT usuarios_cedula FROM omnicanal.usuarios");
             if ($resultado->execute()) {
                 $result = $resultado->fetchAll(PDO::FETCH_ASSOC);
                 return ($result);
@@ -53,7 +53,7 @@ class buscadormodel extends Model{
 
         try {
             $items = [];
-            $query = $this->db->connect()->prepare("SELECT * FROM prueba.registro WHERE registro_cedula=$cedula");
+            $query = $this->db->connect()->prepare("SELECT * FROM omnicanal.registro WHERE registro_cedula=$cedula");
 
             if ($query->execute()) {
                 $result = $query->fetchAll(PDO::FETCH_ASSOC);
@@ -72,7 +72,7 @@ class buscadormodel extends Model{
     function traeragendar(){
 
         try {
-            $resultadoage = $this->db->connect()->query("SELECT * FROM prueba.agendar");
+            $resultadoage = $this->db->connect()->query("SELECT * FROM omnicanal.agendar");
             if ($resultadoage->execute()) {
                 $resultage = $resultadoage->fetchAll(PDO::FETCH_ASSOC);
                 echo json_encode($resultage);
@@ -97,7 +97,7 @@ class buscadormodel extends Model{
 
         try {
             $items = [];
-            $query = $this->db->connect()->prepare("INSERT INTO prueba.agendar 
+            $query = $this->db->connect()->prepare("INSERT INTO omnicanal.agendar 
             (usuarios,fecha_hora_agendar,cedula_registro,observaciones_agendar)
             values(:usuario,:fecha,:cedula,:observaciones)");
 
@@ -123,7 +123,7 @@ class buscadormodel extends Model{
     function CargarCedulas(){
 
         try {
-            $resultado = $this->db->connect()->query("SELECT registro_cedula FROM prueba.registro");
+            $resultado = $this->db->connect()->query("SELECT registro_cedula FROM omnicanal.registro");
             if ($resultado->execute()) {
                 $result = $resultado->fetchAll(PDO::FETCH_ASSOC);
                 return ($result);
@@ -140,7 +140,7 @@ class buscadormodel extends Model{
     {
 
         try {
-            $resultado1 = $this->db->connect()->query("SELECT * FROM prueba.interacciones");
+            $resultado1 = $this->db->connect()->query("SELECT * FROM omnicanal.interacciones");
             if ($resultado1->execute()) {
                 $result1 = $resultado1->fetchAll(PDO::FETCH_ASSOC);
                 echo json_encode($result1);
@@ -160,7 +160,7 @@ class buscadormodel extends Model{
     {
 
         try {
-            $resultadocam = $this->db->connect()->query("SELECT * FROM prueba.campana");
+            $resultadocam = $this->db->connect()->query("SELECT * FROM omnicanal.campana");
             if ($resultadocam->execute()) {
                 $resultcam = $resultadocam->fetchAll(PDO::FETCH_ASSOC);
                 return ($resultcam);
@@ -177,7 +177,7 @@ class buscadormodel extends Model{
     {
         $id = $parametros["id"];
         try {
-            $resultadotip = $this->db->connect()->query("SELECT * FROM prueba.tipificaciones WHERE id_campana ='".$id."'");
+            $resultadotip = $this->db->connect()->query("SELECT * FROM omnicanal.tipificaciones WHERE id_campana ='".$id."'");
             if ($resultadotip->execute()) {
                 $resulttip = $resultadotip->fetchAll(PDO::FETCH_ASSOC);
                 echo json_encode($resulttip);
@@ -205,7 +205,7 @@ class buscadormodel extends Model{
 
         try {
             $items = [];
-            $query = $this->db->connect()->prepare("INSERT INTO prueba.interacciones 
+            $query = $this->db->connect()->prepare("INSERT INTO omnicanal.interacciones 
             (usuarios,fechahora,cedulacontacto,observacion,nombre_campana,tipificacion,telefonocontacto,procedencia)
             values(:usuario,:fecha,:cedula,:observaciones,:campana,:tipificaciones,:telefonocontacto,:procedencias)");
 
@@ -305,7 +305,7 @@ class buscadormodel extends Model{
 
         try {
             $items = [];
-            $query = $this->db->connect()->prepare("UPDATE prueba.registro SET registro_cedula=:cedula2,
+            $query = $this->db->connect()->prepare("UPDATE omnicanal.registro SET registro_cedula=:cedula2,
             registro_apellido_paterno=:Apellido_paterno2,registro_apellido_materno=:Apellido_materno2,
             registro_nombre=:Nombre2,registro_fecha_nacimiento=:Fecha_nacimiento2,registro_edad=:Edad2,
             registro_sexo=:Sexo2,registro_estado_civil=:Estado_civil2,registro_correo_electronico=:Correo_electronico2,
