@@ -12,7 +12,7 @@ class User extends Model
     function uss($user, $contra)
     {
 
-        $query = $this->db->connect()->prepare("SELECT * from prueba.usuarios
+        $query = $this->db->connect()->prepare("SELECT * from omnicanal.usuarios
         where correo_electronico = '" . $user . "'");
 
         if ($query->execute()) {
