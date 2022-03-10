@@ -19,7 +19,7 @@
 [14-Dec-2021 15:54:23 UTC] PHP Warning:  require(views/errores/errores.php): failed to open stream: No such file or directory in C:\Apache24\htdocs\camilo\libs\view.php on line 7
 [14-Dec-2021 15:54:23 UTC] PHP Fatal error:  require(): Failed opening required 'views/errores/errores.php' (include_path='.;C:\php\pear') in C:\Apache24\htdocs\camilo\libs\view.php on line 7
 [14-Dec-2021 15:55:42 UTC] PHP Warning:  require(views/errores/errores.php): failed to open stream: No such file or directory in C:\Apache24\htdocs\camilo\libs\view.php on line 7
-[14-Dec-2021 15:55:42 UTC] PHP Fatal error:  require(): Failed opening required 'views/errores/errores.php' (include_path='.;C:\php\pear') in C:\Apache24\htdocs\camilo\libs\view.php on line 7
+[14-Dec-2021 15:55:42 UTC] PHP Fatal error:r  equire(): Failed opening required 'views/errores/errores.php' (include_path='.;C:\php\pear') in C:\Apache24\htdocs\camilo\libs\view.php on line 7
 [14-Dec-2021 15:55:44 UTC] PHP Warning:  require(views/errores/errores.php): failed to open stream: No such file or directory in C:\Apache24\htdocs\camilo\libs\view.php on line 7
 [14-Dec-2021 15:55:44 UTC] PHP Fatal error:  require(): Failed opening required 'views/errores/errores.php' (include_path='.;C:\php\pear') in C:\Apache24\htdocs\camilo\libs\view.php on line 7
 [14-Dec-2021 15:55:55 UTC] PHP Warning:  require(views/errores/errores.php): failed to open stream: No such file or directory in C:\Apache24\htdocs\camilo\libs\view.php on line 7
